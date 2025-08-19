@@ -35,3 +35,7 @@ class Solution:
                 ans.extend([items[p][0]] * p_cnt)
                 break
         return ans
+
+if __name__ == "__main__":
+    s = Solution()
+    print(s.rearrangeBarcodes(barcodes = [1,1,1,1,2,2,3,3]))
