@@ -52,3 +52,15 @@ class PrimeSieve:
                 if i % p == 0:
                     break
         return primes
+
+
+primeSieve = PrimeSieve(100)
+is_prime = primeSieve.is_prime
+class Solution:
+    def maximumPrimeDifference(self, nums: List[int]) -> int:
+        l, r = inf, -inf
+        for idx, num in enumerate(nums):
+            if is_prime[num]:
+                l = _min(l, idx)
+                r = _max(r, idx)
+        return r - l if r != -inf and l != inf else 0

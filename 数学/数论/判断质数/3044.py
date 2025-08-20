@@ -52,3 +52,39 @@ class PrimeSieve:
                 if i % p == 0:
                     break
         return primes
+
+primeSieve = PrimeSieve(999999)
+is_prime = primeSieve.is_prime
+
+class Solution:
+    def mostFrequentPrime(self, mat: List[List[int]]) -> int:
+        n, m = len(mat), len(mat[0])
+        # 八个方向
+        directions = [(0, 1), (1, 0), (0, -1), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)]
+        freq = defaultdict(int)
+        max_cnt, max_prime = 0, -1
+        for i in range(n):
+            for j in range(m):
+                for dx, dy in directions:
+                    temp = 0
+                    x, y = i, j
+                    while 0 <= x < n and 0 <= y < m:
+                        temp = temp * 10 + mat[x][y]
+                        if is_prime[temp] and temp > 10:
+                            freq[temp] += 1
+                            if freq[temp] > max_cnt:
+                                max_cnt = freq[temp]
+                                max_prime = temp
+                            elif freq[temp] == max_cnt and temp > max_prime:
+                                max_prime = temp
+                        x += dx
+                        y += dy
+                    
+        # print(freq)
+        return max_prime
+
+
+if __name__ == "__main__":
+    s = Solution()
+    print(s.mostFrequentPrime(mat = [[1,1],[9,9],[1,1]]))
+    print(s.mostFrequentPrime([[7]]))

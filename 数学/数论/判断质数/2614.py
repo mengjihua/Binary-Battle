@@ -52,3 +52,15 @@ class PrimeSieve:
                 if i % p == 0:
                     break
         return primes
+
+primeSieve = PrimeSieve(4 * 10 ** 6)
+is_prime = primeSieve.is_prime
+
+class Solution:
+    def diagonalPrime(self, nums: List[List[int]]) -> int:
+        ans = 0
+        for i, row in enumerate(nums):
+            for x in row[i], row[-1 - i]:
+                if x > ans and is_prime[x]:
+                    ans = x
+        return ans
