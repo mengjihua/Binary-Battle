@@ -59,3 +59,13 @@ class PrimeSieve:
             if n % i == 0:
                 return False
         return n >= 2
+
+primeSieve = PrimeSieve(5 * 10 ** 6)
+is_prime = primeSieve.is_prime
+pre_prime_sum = [0] * (5 * 10 ** 6 + 1)
+for i in range(3, 5 * 10 ** 6 + 1):
+    pre_prime_sum[i] = pre_prime_sum[i - 1] + (1 if is_prime[i - 1] else 0)
+    
+class Solution:
+    def countPrimes(self, n: int) -> int:
+        return pre_prime_sum[n]

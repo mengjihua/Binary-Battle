@@ -59,3 +59,14 @@ class PrimeSieve:
             if n % i == 0:
                 return False
         return n >= 2
+
+# print((10 ** 6).bit_length()) # 20
+primeSieve = PrimeSieve(21)
+is_prime = primeSieve.is_prime
+class Solution:
+    def countPrimeSetBits(self, left: int, right: int) -> int:
+        ans = 0
+        for i in range(left, right + 1):
+            if is_prime[i.bit_count()]:
+                ans += 1
+        return ans
