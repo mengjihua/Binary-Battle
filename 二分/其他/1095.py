@@ -25,66 +25,28 @@ class MountainArray:
 
 class Solution:
     def findInMountainArray(self, target: int, mountainArr: 'MountainArray') -> int:
-        n, temp_idx = mountainArr.length(), 1
-        if n < 3:
-            return -1
-        
-        # 找到最高峰索引
-        def query_peak(x):
-            q_num = mountainArr.get(x + 1)
-            num = mountainArr.get(x)
-            if q_num < num:
-                return -1
-            else:
-                return 1
-        l, r = 1, n - 2
-        while l <= r:
-            mid = (l + r) // 2
-            if query_peak(mid) == 1:
-                l = mid + 1
-            else:
-                r = mid - 1
-        temp_idx = r + 1
-        if mountainArr.get(temp_idx) == target:
-            return temp_idx
-        
-        def check(index):
-            num = mountainArr.get(index)
-            if num == target:
-                return 0
-            elif num < target:
-                return 1
-            return -1
-        
-        # 左边山峰寻找 target
-        l, r = 0, temp_idx - 1
-        while l <= r:
-            mid = (l + r) // 2
-            if check(mid) == 0:
-                return mid
-            elif check(mid) == 1:
-                l = mid + 1
-            else:
-                r = mid - 1
-        
-        # 右边山峰寻找 target
-        l, r = temp_idx + 1, n - 1
-        while l <= r:
-            mid = (l + r) // 2
-            if check(mid) == 0:
-                return mid
-            elif check(mid) == 1:
-                r = mid - 1
-            else:
-                l = mid + 1
-        
-        return -1
+        def get_peak():
+            l, r = 1, mountainArr.length() - 2
+            while l <= r:
+                mid = (l + r) // 2
+                if mountainArr.get(mid) < mountainArr.get(mid + 1):
+                    l = mid + 1
+                else:
+                    r = mid - 1
+            return l
 
-if __name__ == "__main__":
-    s = Solution()
-    mountainArr = MountainArray([1,2,3,4,5,3,1])
-    print(s.findInMountainArray(target = 3, mountainArr=mountainArr))
-    mountainArr = MountainArray([1,5,2])
-    print(s.findInMountainArray(target = 2, mountainArr=mountainArr))
-    mountainArr = MountainArray([1,2,5,1])
-    print(s.findInMountainArray(target = 5, mountainArr=mountainArr))
+        def search(l, r, asc):
+            while l <= r:
+                mid = (l + r) // 2
+                val = mountainArr.get(mid)
+                if val == target: return mid
+                if asc ^ (val < target): r = mid - 1
+                else: l = mid + 1
+            return -1
+
+        n = mountainArr.length()
+        peak = get_peak()
+        if mountainArr.get(peak) == target:
+            return peak
+        left = search(0, peak - 1, True)
+        return left if left != -1 else search(peak + 1, n - 1, False)
