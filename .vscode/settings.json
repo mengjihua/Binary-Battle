@@ -2,5 +2,19 @@
     "workbench.editor.autoLockGroups": {
         "default": true
     },
-    "Codegeex.RepoIndex": true
+    "Codegeex.RepoIndex": true,
+    "files.watcherExclude": {
+        "**/.git/**": true,
+        "**/node_modules/**": true,
+        "**/dist/**": true,
+        "**/build/**": true,
+        "**/logs/**": true,
+        "**/tmp/**": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/dist": true,
+        "**/build": true
+    }
 }
