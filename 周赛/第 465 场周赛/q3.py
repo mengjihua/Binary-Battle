@@ -16,49 +16,20 @@ MOD = 10 ** 9 + 7
 
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        cnt = Counter(nums)
-        
-        nums_set = set(nums)
-        max_product = -inf
-        
-        for num1 in nums:
-            comp = ((1 << 20) - 1) ^ num1
-            temp = comp
-            while True:
-                if temp in nums_set:
-                    num2 = temp
-                    if num1 != num2 or cnt[num1] > 1:
-                        max_product = max(max_product, num1 * num2)
-                if temp == 0:
-                    break
-                temp = (temp - 1) & comp
-
-        return max_product
-    
-    def maxProduct(self, nums: List[int]) -> int:
-        mx = 1 << 20
-        max_num = [0] * mx
+        w = max(nums).bit_length()
+        u = 1 << w
+        f = [0] * u  # f[s] 表示能由 s 的子集构成的原始数的最大值
         for x in nums:
-            max_num[x] = x
-        
-        dp = max_num.copy()
-        for i in range(20):
-            for mask in range(mx):
-                if mask & (1 << i):
-                    temp = mask ^ (1 << i)
-                    if dp[temp] > dp[mask]:
-                        dp[mask] = dp[temp]
-        
-        ans = 0
-        temp = mx - 1
-        for s in range(mx):
-            if max_num[s] != 0:
-                comp = temp & (~s)
-                if dp[comp] != 0:
-                    product = max_num[s] * dp[comp]
-                    if product > ans:
-                        ans = product
-        return ans
+            f[x] = x  # 初始值
+
+        for s in range(u):  # 从小到大枚举集合 s
+            for i in range(w):  # 枚举 s 中的元素 i
+                if s >> i & 1:  # i 属于集合 s
+                    v = f[s ^ (1 << i)]  # 从 s 的子集 s \ {i} 转移过来
+                    if v > f[s]:
+                        f[s] = v  # 手写 max 更快
+
+        return max(x * f[(u - 1) ^ x] for x in nums)
     
 
-# print((1 << 20) * 20)
+# print((1 << 20) * 20) # 20971520
