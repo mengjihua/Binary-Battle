@@ -37,6 +37,8 @@ class Solution:
         
         ans = 0
         for i in range(n):
-            if pre[i] != -1 and suf[i] != -1:
+            if pre[i] != -1 and i - pre[i] > 1:
+                ans += 1
+            if suf[i] != -1 and suf[i] - i > 1:
                 ans += 1
         return ans
