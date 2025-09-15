@@ -1,6 +1,6 @@
 from typing import List, Tuple, Dict, Set, Optional
 from collections import defaultdict, Counter, deque
-from itertools import permutations, combinations
+from itertools import permutations, combinations, accumulate
 from datetime import datetime, date, time, timedelta
 from time import time as timestamp, sleep
 from functools import cmp_to_key, lru_cache, reduce
@@ -14,20 +14,3 @@ def _max(a, b): return a if a > b else b
 def _min(a, b): return a if a < b else b
 MOD = 10 ** 9 + 7
 
-class Solution:    
-    def rearrangeBarcodes(self, barcodes: List[int]) -> List[int]:
-        cnt = Counter(barcodes)
-        items = sorted(cnt.items(), key=lambda x: -x[1])
-        ans = [0] * len(barcodes)
-        idx = 0
-        for num, cnt in items:
-            for _ in range(cnt):
-                ans[idx] = num
-                idx += 2
-                if idx >= len(barcodes):
-                    idx = 1
-        return ans
-
-if __name__ == "__main__":
-    s = Solution()
-    print(s.rearrangeBarcodes(barcodes = [1,1,1,1,2,2,3,3]))
