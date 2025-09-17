@@ -36,29 +36,6 @@ class Solution:
             else:
                 r = mid - 1
         return r
-    
-    # 反悔堆, 先用砖块填平(进堆), 
-    # 然后如果砖块不够了, 就用梯子填平, 然后把梯子填平的差值换回砖块(取高度最大值 -> 出堆)
-    # # 如果砖块和梯子都不够了, 就返回当前的高度
-    # 这种方法的时间复杂度是 O(n log n)，其中 n 是建筑物的数量。
-    # 空间复杂度是 O(n)，用于存储堆.
-    def furthestBuilding(self, heights: List[int], bricks: int, ladders: int) -> int:
-        heap, n = [], len(heights)
-        for i in range(n - 1):
-            if heights[i] >= heights[i + 1]:
-                continue
-            need = heights[i + 1] - heights[i]
-            heappush(heap, -need)
-            if bricks >= need:
-                bricks -= need
-            else:
-                while heap and ladders > 0 and bricks < need:
-                    ladders -= 1
-                    bricks -= heappop(heap)
-                if bricks < need:
-                    return i
-                bricks -= need
-        return n - 1
 
 if __name__ == '__main__':
     s = Solution()

@@ -14,3 +14,10 @@ def _max(a, b): return a if a > b else b
 def _min(a, b): return a if a < b else b
 MOD = 10 ** 9 + 7
 
+class Solution:
+    def numberOfWeeks(self, milestones: List[int]) -> int:
+        sm = sum(milestones)
+        mx = max(milestones)
+        if mx <= sm - mx + 1:
+            return sm
+        return 2 * (sm - mx) + 1
