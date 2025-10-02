@@ -50,3 +50,4 @@ class Solution:
                 pre_sm = fmax(pre_sm, pre[i] - pre[i - secondLen])
             ans = fmax(ans, fl_sm + fmax(pre_sm, suf_mx))
         return ans
+ 
