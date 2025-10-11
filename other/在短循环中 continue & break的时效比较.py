@@ -47,15 +47,14 @@ def benchmark(n_trials: int = 1000000):
     time_continue = time.perf_counter() - start
     
     # === 输出结果 ===
-    print(f"Results:")
+    print(f"结果:")
     print(f"  break    total: {result_break}")
     print(f"  continue total: {result_continue}")
-    print(f"  Results match? {result_break == result_continue}")
     
-    print(f"\nPerformance:")
+    print(f"\表现:")
     print(f"  break      : {time_break * 1000:.2f} ms")
     print(f"  continue   : {time_continue * 1000:.2f} ms")
-    print(f"  Difference : {abs(time_break - time_continue) * 1000:.2f} ms")
+    print(f"  差异       : {abs(time_break - time_continue) * 1000:.2f} ms")
     
     if time_break < time_continue:
         print(f"✅ break is faster by {((time_continue / time_break) - 1)*100:.1f}%")
