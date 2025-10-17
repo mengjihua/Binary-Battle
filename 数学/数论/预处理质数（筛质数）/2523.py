@@ -15,7 +15,6 @@ def fmin(a, b): return a if a < b else b
 def lcm(a, b): return a * b // gcd(a, b)
 MOD = 10 ** 9 + 7
 
-
 class PrimeSieve:
     def __init__(self, max_n=0):
         """初始化时可预计算max_n范围内的素数表"""
@@ -60,3 +59,21 @@ class PrimeSieve:
             if n % i == 0:
                 return False
         return n >= 2
+    
+ps = PrimeSieve(10 ** 6)
+primes = ps.primes
+
+class Solution:
+    def closestPrimes(self, left: int, right: int) -> List[int]:
+        ans = [-1, -1]
+        mn = inf
+        l_bound, r_bound = bisect_left(primes, left), bisect_right(primes, right)
+        for i in range(l_bound, r_bound - 1):
+            if primes[i + 1] - primes[i] < mn:
+                mn = primes[i + 1] - primes[i]
+                ans = [primes[i], primes[i + 1]]
+        return ans
+    
+if __name__ == "__main__":
+    s = Solution()
+    print(s.closestPrimes(left = 10, right = 19))

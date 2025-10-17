@@ -15,7 +15,6 @@ def fmin(a, b): return a if a < b else b
 def lcm(a, b): return a * b // gcd(a, b)
 MOD = 10 ** 9 + 7
 
-
 class PrimeSieve:
     def __init__(self, max_n=0):
         """初始化时可预计算max_n范围内的素数表"""
@@ -60,3 +59,22 @@ class PrimeSieve:
             if n % i == 0:
                 return False
         return n >= 2
+
+# print(pow(10 ** 9, 1 / 2))  # 31622.776601683792
+ps = PrimeSieve(31622)
+primes = ps.primes
+
+temp = []
+for p in primes:
+    temp.append(p * p)
+
+class Solution:
+    def nonSpecialCount(self, l: int, r: int) -> int:
+        l_bound, r_bound = bisect_left(temp, l), bisect_left(temp, r + 1)
+        # print(temp[l_bound:r_bound])
+        return r - l + 1 - (r_bound - l_bound)
+    
+
+if __name__ == "__main__":
+    s = Solution()
+    print(s.nonSpecialCount(l = 4, r = 16))

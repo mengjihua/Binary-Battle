@@ -60,3 +60,27 @@ class PrimeSieve:
             if n % i == 0:
                 return False
         return n >= 2
+    
+    
+ps = PrimeSieve(10 ** 6)
+primes = ps.primes    
+
+class Solution:
+    def findPrimePairs(self, n: int) -> List[List[int]]:
+        # ps = PrimeSieve(n)
+        # primes = ps.primes
+        
+        l, r = 0, len(primes) - 1
+        ans = []
+        while l <= r:
+            s = primes[l] + primes[r]
+            if s == n:
+                ans.append([primes[l], primes[r]])
+                l += 1
+                r -= 1
+            elif s < n:
+                l += 1
+            else:
+                r -= 1
+                
+        return ans
