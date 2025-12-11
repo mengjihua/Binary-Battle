@@ -6,7 +6,7 @@ def calculate_scores(student_name, *subjects, **scores):
     score_lines = []
     for sub in subjects:
         if sub in scores:
-            score_lines.append(f"{sub}: {scores[sub]:.1f}")  # 保留1位小数
+            score_lines.append(f"{sub}: {scores[sub]:.1f}")
 
     total = sum(scores.values())
     avg = total / len(scores) if scores else 0
