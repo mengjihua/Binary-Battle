@@ -107,5 +107,5 @@ if __name__ == "__main__":
     print("Done!")
     print()
     print("目前全{}1600分以上的有{}人".format("球" if GLOBAL else "国",n))
-    print("根据这个人数，我们得到的Guardian排名及分数信息为:{}".format(guardian))
-    print("根据这个人数，我们得到的Knight排名及分数信息为:{}".format(knight))
+    print("根据这个人数, 我们得到的Guardian排名及分数信息为:{}".format(guardian))
+    print("根据这个人数, 我们得到的Knight排名及分数信息为:{}".format(knight))

@@ -27,11 +27,11 @@ class TOPO:
     def topologicalSort(self, n: int, edges: List[List[int]]) -> List[int]:
         """
         返回有向无环图(DAG)的一个拓扑序。
-        如果图中存在环，则返回空列表。
+        如果图中存在环, 则返回空列表。
         实现: Kahn 算法(基于入度的拓扑排序)
-        :param n: 节点数量，节点编号从 0 到 n-1
-        :param edges: 边的列表，每条边表示为 [from, to]
-        :return: 拓扑排序的节点列表；若存在环，返回空列表
+        :param n: 节点数量, 节点编号从 0 到 n-1
+        :param edges: 边的列表, 每条边表示为 [from, to]
+        :return: 拓扑排序的节点列表；若存在环, 返回空列表
         """
         g = [[] for _ in range(n)]
         in_degree = [0] * n

@@ -17,7 +17,7 @@ MOD = 10 ** 9 + 7
 
 class ShortestPath:
     """
-    最短路径算法模板类，支持 Dijkstra 和 Floyd 算法。
+    最短路径算法模板类, 支持 Dijkstra 和 Floyd 算法。
     节点编号从 1 开始。
     """
     def __init__(self):

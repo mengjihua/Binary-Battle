@@ -16,7 +16,7 @@ MOD = 10 ** 9 + 7
 
 class Solution:
     def countBinaryPalindromes(self, n: int) -> int:
-        # 如果 n 为 0，只有一个回文数 0
+        # 如果 n 为 0, 只有一个回文数 0
         if n == 0:
             return 1
 

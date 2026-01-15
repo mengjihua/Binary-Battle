@@ -10,7 +10,7 @@ import sys
 sys.setrecursionlimit(10 ** 5 + 1)
 
 class Solution:
-    #  s，它由小写英文字母和特殊字符：*、# 和 % 组成。
+    #  s, 它由小写英文字母和特殊字符：*、# 和 % 组成。
     def processStr(self, s: str) -> str:
         res = []
         for c in s:

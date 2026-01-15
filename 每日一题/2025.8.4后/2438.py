@@ -44,7 +44,7 @@ class Solution:
         for i in range(1, n + 1):
             pre_prod[i] = (pre_prod[i - 1] * powers[i - 1]) % MOD
 
-        # 快速幂求模逆元（费马小定理，MOD 是质数）
+        # 快速幂求模逆元(费马小定理, MOD 是质数）
         def mod_inv(a, mod):
             return pow(a, mod - 2, mod)
             

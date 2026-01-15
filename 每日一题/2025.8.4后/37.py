@@ -23,7 +23,7 @@ class Solution:
         col = [set() for _ in range(9)]
         box = defaultdict(set)
 
-         # 预处理，记录已经填入的数字
+         # 预处理, 记录已经填入的数字
         for i in range(9):
             for j in range(9):
                 if board[i][j] != '.':

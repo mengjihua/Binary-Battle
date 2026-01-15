@@ -20,10 +20,10 @@ for num in range(10000):
     for i in range(length):
         derivative_w += - (w * x[i] + b - y[i]) * x[i] / length
         derivative_b += - (w * x[i] + b - y[i]) / length
-    # delta w，delta b = 学习率 * 偏导数
+    # delta w, delta b = 学习率 * 偏导数
     w = w + learningRate * derivative_w
     b = b + learningRate * derivative_b
-    # 当偏导数非常小时（接近0），说明已经收敛，提前退出循环
+    # 当偏导数非常小时(接近0）, 说明已经收敛, 提前退出循环
     if derivative_w <= pow(10, -13) and derivative_b <= pow(10, -13):
         break
 

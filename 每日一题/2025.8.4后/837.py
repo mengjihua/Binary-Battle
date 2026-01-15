@@ -19,14 +19,14 @@ class Solution:
         if k == 0 or n >= k - 1 + maxPts:
             return 1.0
         
-        # dp[i] 表示：游戏结束时，Alice 的分数 恰好为 i 的概率
+        # dp[i] 表示：游戏结束时, Alice 的分数 恰好为 i 的概率
         dp = [0.0] * (n + 1)
         dp[0] = 1.0
         
         # window_sum 维护的是 j ~ [i - maxPts, i - 1] 范围内所有 dp[j] 的和
         window_sum = 1.0  # 初始时只有 dp[0] 在窗口中
         
-        # ans: 累加所有终止状态中分数 <= n 的概率（实际上只累加 >= k 的状态）
+        # ans: 累加所有终止状态中分数 <= n 的概率(实际上只累加 >= k 的状态）
         ans = 0.0
         
         # 从分数 1 开始递推到 n
@@ -35,10 +35,10 @@ class Solution:
             # 每个状态转移的概率是 1 / maxPts
             dp[i] = window_sum / maxPts
             
-            # 如果当前分数 i >= k，游戏在此停止，这是一个终止状态
+            # 如果当前分数 i >= k, 游戏在此停止, 这是一个终止状态
             if i >= k:
                 ans += dp[i]
-            else: # 如果当前分数 i < k，说明还能继续抽牌，因此 dp[i] 可以作为后续状态的来源
+            else: # 如果当前分数 i < k, 说明还能继续抽牌, 因此 dp[i] 可以作为后续状态的来源
                 window_sum += dp[i]
             
             # 维护滑动窗口大小为 maxPts

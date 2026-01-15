@@ -19,17 +19,17 @@ class Solution:
             g[u].append(v)
             g[v].append(u)
 
-        total_states = 1 << n  # 状态压缩，所有节点的子集
-        # 三维DP数组：dp[mask][x][y] 表示在mask状态下，以x和y为端点的最长回文路径长度
+        total_states = 1 << n  # 状态压缩, 所有节点的子集
+        # 三维DP数组：dp[mask][x][y] 表示在mask状态下, 以x和y为端点的最长回文路径长度
         dp = [[[-1] * n for _ in range(n)] for _ in range(total_states)]
-        ans = 1  # 最小回文路径长度为1（单个节点）
+        ans = 1  # 最小回文路径长度为1(单个节点）
 
         # 初始化：每个节点自身为长度1的回文路径
         for u in range(n):
             mask = 1 << u
             dp[mask][u][u] = 1
 
-        # 初始化：每条边且两端字符相同，长度为2的回文路径
+        # 初始化：每条边且两端字符相同, 长度为2的回文路径
         for u, v in edges:
             if label[u] == label[v]:
                 mask = (1 << u) | (1 << v)
@@ -37,7 +37,7 @@ class Solution:
                 dp[mask][tu][tv] = 2
                 ans = 2
 
-        # 状压DP，枚举所有状态
+        # 状压DP, 枚举所有状态
         for mask in range(total_states):
             for x in range(n):
                 for y in range(x, n):

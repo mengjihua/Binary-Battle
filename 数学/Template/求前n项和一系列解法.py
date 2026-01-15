@@ -20,11 +20,11 @@ class SumOfFirstNTerms:
         # 特殊情况处理
         if d == 0:
             if a1 == 0:
-                return float('inf')  # 所有项都是0，可以无限取
+                return float('inf')  # 所有项都是0, 可以无限取
             elif a1 > 0:
-                return 0  # 所有项都大于0，无法取任何项使总和<=0
+                return 0  # 所有项都大于0, 无法取任何项使总和<=0
             else:
-                return s_max // abs(a1)  # 每一项都是负数，尽可能多取
+                return s_max // abs(a1)  # 每一项都是负数, 尽可能多取
 
         # 求解二次方程的根
         a = d

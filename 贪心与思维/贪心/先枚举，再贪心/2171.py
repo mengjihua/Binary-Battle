@@ -45,7 +45,7 @@ class Solution:
             pre_cnt = pre_cnt + cnt
         return sm - remain
     
-    # 无需Counter，直接排序
+    # 无需Counter, 直接排序
     def minimumRemoval(self, beans: List[int]) -> int:
         beans.sort()
         n = len(beans)

@@ -20,7 +20,7 @@ class Solution:
         n = len(edges)
         
         def get_dist(node: int) -> List[int]:
-            # 可能有环，所以需要判断是否访问过
+            # 可能有环, 所以需要判断是否访问过
             dist = [inf] * n
             dist[node] = 0
             vis = [False] * n

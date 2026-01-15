@@ -15,7 +15,7 @@ def _min(a, b): return a if a < b else b
 
 class PrimeSieve:
     def sieve_eratosthenes(self, n: int) -> List[bool]:
-        """优化的埃氏筛法，时间复杂度 O(n log log n)"""
+        """优化的埃氏筛法, 时间复杂度 O(n log log n)"""
         if n < 2:
             return []
         is_prime = [True] * (n + 1)
@@ -24,7 +24,7 @@ class PrimeSieve:
         # 只需遍历到 sqrt(n)
         for i in range(2, int(n**0.5) + 1):
             if is_prime[i]:
-                # 从 i*i 开始标记，避免重复标记
+                # 从 i*i 开始标记, 避免重复标记
                 start = i * i
                 step = i * 2 if i > 2 else i  # 偶数优化
                 is_prime[start::step] = [False] * ((n - start) // step + 1)

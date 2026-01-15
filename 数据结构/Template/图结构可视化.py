@@ -40,7 +40,7 @@ class TreeNode:
         plt.rcParams['font.sans-serif'] = ['SimHei']
         plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 
-        # 显示节点标签（节点编号 + label 字符）
+        # 显示节点标签(节点编号 + label 字符）
         nx.draw_networkx_labels(
             G, pos, labels, font_size=12, font_color='black', font_weight='bold')
 

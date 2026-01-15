@@ -23,7 +23,7 @@ class PrimeSieve:
         self.is_prime, self.primes = self.sieve_eratosthenes(max_n) 
 
     def sieve_eratosthenes(self, n: int) -> List[int]:
-        """埃氏筛法，时间复杂度 O(n log log n)"""
+        """埃氏筛法, 时间复杂度 O(n log log n)"""
         if n < 2:
             return [False] * (n + 1), []
         is_prime = [True] * (n + 1)
@@ -36,7 +36,7 @@ class PrimeSieve:
         return is_prime, [i for i in range(n + 1) if is_prime[i]]
 
     def sieve_euler(self, n: int) -> List[int]:
-        """欧拉筛法（线性筛），时间复杂度 O(n)"""
+        """欧拉筛法(线性筛）, 时间复杂度 O(n)"""
         if n < 2:
             return []
         is_prime = [True] * (n + 1)

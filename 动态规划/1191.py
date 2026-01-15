@@ -25,7 +25,7 @@ class Solution:
     #         return max(condition1, condition2, condition3) % (10**9 + 7)
     
     def maxSubArray(self, nums: List[int]) -> int:
-        ans = f = 0  # 本题允许子数组为空，ans 可以初始化成 0
+        ans = f = 0  # 本题允许子数组为空, ans 可以初始化成 0
         for x in nums:
             f = max(f, 0) + x
             ans = max(ans, f)

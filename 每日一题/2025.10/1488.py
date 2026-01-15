@@ -34,7 +34,7 @@ class Solution:
                     return []
                 ans[dry_days[idx]] = lake
                 lake_filled[lake] = day
-                dry_days.pop(idx)  # O(n) 操作，可以用有序集合优化
+                dry_days.pop(idx)  # O(n) 操作, 可以用有序集合优化
                 
         for day in dry_days:
             ans[day] = 1

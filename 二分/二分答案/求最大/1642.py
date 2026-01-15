@@ -12,12 +12,12 @@ sys.setrecursionlimit(10 ** 5 + 1)
 # TODO 发题解
 class Solution:
     # 1. 先建立一个高度差的 diff。
-    # 2. 对于每次循环，得到前 mid 个高度差并进行排序, 去除前ladder个（用梯子）， 
+    # 2. 对于每次循环, 得到前 mid 个高度差并进行排序, 去除前ladder个(用梯子）,  
     # 3. 将剩余的高度差求和 与 砖块数比较。
-    # 4. 如果和小于等于砖块数，则说明可以到达 mid 个建筑物，继续向右查找。
-    # 5. 如果和大于砖块数，则说明不能到达 mid 个建筑物，向左查找。
-    # 这种方法的时间复杂度是 O(n log n log n)，其中 n 是建筑物的数量。
-    # 空间复杂度是 O(n)，用于存储高度差。
+    # 4. 如果和小于等于砖块数, 则说明可以到达 mid 个建筑物, 继续向右查找。
+    # 5. 如果和大于砖块数, 则说明不能到达 mid 个建筑物, 向左查找。
+    # 这种方法的时间复杂度是 O(n log n log n), 其中 n 是建筑物的数量。
+    # 空间复杂度是 O(n), 用于存储高度差。
     def furthestBuilding(self, heights: List[int], bricks: int, ladders: int) -> int:
         n, diff = len(heights), []
         for i in range(n - 1):

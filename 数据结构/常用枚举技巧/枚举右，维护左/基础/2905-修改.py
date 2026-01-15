@@ -19,15 +19,15 @@ class Solution:
             return n * (n - 1) + n
         
         count = 0
-        # 维护一个滑动窗口中的 nums[l] 的有序数组，l <= r - indexDifference
+        # 维护一个滑动窗口中的 nums[l] 的有序数组, l <= r - indexDifference
         sl = SortedList()
         
         for r in range(n):
-            # 当前 r，可以加入满足 l <= r - indexDifference 的 nums[l] 到有序数组中
+            # 当前 r, 可以加入满足 l <= r - indexDifference 的 nums[l] 到有序数组中
             if r >= indexDifference:
                 sl.add(nums[r - indexDifference])
 
-            # 现在，sl 是所有满足 l <= r - indexDifference 的 nums[l]
+            # 现在, sl 是所有满足 l <= r - indexDifference 的 nums[l]
             # 找出其中有几个满足 abs(nums[r] - nums[l]) >= valueDifference
             if sl:
                 # nums[r] - nums[l] >= valueDifference -> nums[l] <= nums[r] - valueDifference

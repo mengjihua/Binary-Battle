@@ -24,7 +24,7 @@ class NumberContainers:
         self.num_to_indices = defaultdict(SortedList)
 
     def change(self, index: int, number: int) -> None:
-        # 如果 index 已经存在旧的 number，先移除旧的映射
+        # 如果 index 已经存在旧的 number, 先移除旧的映射
         old_num = self.index_to_num[index]
         if old_num != 0:
             self.num_to_indices[old_num].remove(index)

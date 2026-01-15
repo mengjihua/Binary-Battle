@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def findMin(self, nums: List[int]) -> int:
-        l, r = 0, len(nums) - 2  # 除掉最后一个元素，不影响结果
+        l, r = 0, len(nums) - 2  # 除掉最后一个元素, 不影响结果
         while l <= r:
             mid = (l + r) // 2
             if nums[mid] < nums[r + 1]:

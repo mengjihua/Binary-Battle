@@ -7,17 +7,17 @@ is_paused = False       # 暂停状态标记
 pause_start = 0         # 暂停开始时间
 
 def display_runtime():
-    """计算并显示当前运行时间（排除暂停时段）"""
+    """计算并显示当前运行时间(排除暂停时段）"""
     if is_paused:
         current_elapsed = pause_start - start_time - elapsed_paused_time
     else:
         current_elapsed = time() - start_time - elapsed_paused_time
     
-    # 精确计算分钟和秒（保留1位小数）
+    # 精确计算分钟和秒(保留1位小数）
     minutes = int(current_elapsed // 60)
     seconds = current_elapsed % 60
     
-    # 格式化输出（秒数保留1位小数，更精准）
+    # 格式化输出(秒数保留1位小数, 更精准）
     print(f"\n运行时间: {minutes} 分钟 {seconds:.1f} 秒")
 
 def pause_timer():
@@ -38,7 +38,7 @@ def resume_timer():
 
 # 显示操作说明
 print("=" * 50)
-print("        计时工具（支持暂停/继续）")
+print("        计时工具(支持暂停/继续）")
 print("=" * 50)
 print("操作说明:")
 print("  按 Enter 键    - 查看当前运行时间")

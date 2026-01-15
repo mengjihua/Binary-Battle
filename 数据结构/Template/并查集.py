@@ -1,6 +1,6 @@
 class UnionFind:
     def __init__(self, n: int) -> None:
-        self.root_or_size = [-1] * n  # 负数表示根节点且绝对值为集合大小，正数表示父节点索引
+        self.root_or_size = [-1] * n  # 负数表示根节点且绝对值为集合大小, 正数表示父节点索引
         self.part = n  # 连通分量数量
         self.n = n     # 总节点数
     
@@ -10,7 +10,7 @@ class UnionFind:
         self.part = self.n
     
     def find(self, x: int) -> int:
-        """查找x的根节点，带路径压缩"""
+        """查找x的根节点, 带路径压缩"""
         if self.root_or_size[x] < 0:
             return x
         
@@ -19,13 +19,13 @@ class UnionFind:
         return self.root_or_size[x]
     
     def union(self, x: int, y: int) -> bool:
-        """合并x和y所在的集合，返回是否成功合并"""
+        """合并x和y所在的集合, 返回是否成功合并"""
         root_x = self.find(x)
         root_y = self.find(y)
         if root_x == root_y:
-            return False  # 已在同一集合，无需合并
+            return False  # 已在同一集合, 无需合并
         
-        # 确保root_x是更大的集合（负数的值更小表示大小更大）
+        # 确保root_x是更大的集合(负数的值更小表示大小更大）
         if self.root_or_size[root_x] > self.root_or_size[root_y]:
             root_x, root_y = root_y, root_x
         

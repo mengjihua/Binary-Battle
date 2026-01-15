@@ -15,7 +15,7 @@ def _max(a, b):
 
 class ConnectedComponents:
     def __init__(self, n: int, edges: List[List[int]]):
-        """初始化图，并计算连通分量"""
+        """初始化图, 并计算连通分量"""
         self.n = n
         self.g = [[] for _ in range(n)]
         for x, y in edges:

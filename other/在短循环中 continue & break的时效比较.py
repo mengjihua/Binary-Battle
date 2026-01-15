@@ -2,7 +2,7 @@ import time
 import random
 from typing import List
 
-# 生成随机短数组：长度 1~3，元素为 0~10 的整数
+# 生成随机短数组：长度 1~3, 元素为 0~10 的整数
 def generate_random_list() -> List[int]:
     length = random.randint(1, 3)
     return [random.randint(0, 10) for _ in range(length)]
@@ -21,7 +21,7 @@ def use_continue(arr: List[int], threshold: int = 5) -> int:
     total = 0
     for x in arr:
         if x > threshold:
-            continue  # 跳过，但继续下一个（如果还有）
+            continue  # 跳过, 但继续下一个(如果还有）
         total += x
     return total
 
@@ -29,7 +29,7 @@ def use_continue(arr: List[int], threshold: int = 5) -> int:
 def benchmark(n_trials: int = 1000000):
     print(f"Running {n_trials:,} trials...\n")
     
-    # 预生成所有测试数据，避免 random 影响时间测量
+    # 预生成所有测试数据, 避免 random 影响时间测量
     test_cases = [generate_random_list() for _ in range(n_trials)]
     
     # === 测试 break 版本 ===
@@ -63,5 +63,5 @@ def benchmark(n_trials: int = 1000000):
 
 # --- 运行测试 ---
 if __name__ == "__main__":
-    random.seed(42)  # 固定种子，保证可复现
+    random.seed(42)  # 固定种子, 保证可复现
     benchmark(1_000_000)

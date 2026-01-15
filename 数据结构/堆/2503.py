@@ -67,7 +67,7 @@ class Solution:
         cnt = 0
         
         ans = [0] * len(queries)
-        # 查询的下标按照查询值从小到大排序，方便离线处理
+        # 查询的下标按照查询值从小到大排序, 方便离线处理
         for qi, q in sorted(enumerate(queries), key=lambda p: p[1]):
             while heap and heap[0][0] < q:
                 cnt += 1

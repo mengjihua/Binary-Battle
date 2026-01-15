@@ -16,7 +16,7 @@ def _max(a, b):
 # TODO https://leetcode.cn/problems/number-of-provinces/solutions/3731895/cc-template-jing-tai-dfs-dong-tai-bing-c-oup7
 class ConnectedComponents:
     def __init__(self, n: int, edges: List[List[int]]):
-        """初始化图，并计算连通分量"""
+        """初始化图, 并计算连通分量"""
         self.n = n
         self.g = [[] for _ in range(n)]
         for x, y in edges:
@@ -96,7 +96,7 @@ class ConnectedComponents2:
         return self.comp_id[u] == self.comp_id[v]
     
     def get_components(self) -> List[List[int]]:
-        """返回所有连通分量的节点列表（按分量ID排序）"""
+        """返回所有连通分量的节点列表(按分量ID排序）"""
         components = [[] for _ in range(self.comp_count)]
         for i in range(self.n):
             components[self.comp_id[i]].append(i)

@@ -38,7 +38,7 @@ class Solution:
                         dfs(nx, ny, reachable)
         
         # for i, j in pacific_reachable: ❌
-        # -> dfs中pacific_reachable会动态变化, 集合在迭代过程(for)中被修改，从而抛出 RuntimeError
+        # -> dfs中pacific_reachable会动态变化, 集合在迭代过程(for)中被修改, 从而抛出 RuntimeError
         for i, j in list(pacific_reachable):
             dfs(i, j, pacific_reachable)
         for i, j in list(atlantic_reachable):

@@ -22,7 +22,7 @@ class XorBasis:
     def insert(self, x: int) -> None:
         ''' 
             向线性基中插入一个数 x
-            若 x 能被已有基表示，则不插入（线性相关）
+            若 x 能被已有基表示, 则不插入(线性相关）
             否则插入 x (线性无关)
         '''
         b = self.b

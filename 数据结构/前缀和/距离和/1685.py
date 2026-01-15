@@ -28,11 +28,11 @@ class Solution:
     def getSumAbsoluteDifferences(self, nums: List[int]) -> List[int]:
         n = len(nums)
 
-        # 记录 (值, 原始索引) ，并按值排序
+        # 记录 (值, 原始索引) , 并按值排序
         num_idx_map = [(nums[i], i) for i in range(n)]
         num_idx_map.sort()
         
-        # 提取排序后的值，计算前缀和
+        # 提取排序后的值, 计算前缀和
         sorted_nums = [num for num, _ in num_idx_map]
         pre = list(accumulate(sorted_nums, initial=0))
         
