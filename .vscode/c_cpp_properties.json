@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "D:/MinGW/include",                // 基础头文件
+                "D:/MinGW/x86_64-w64-mingw32/include",  // 64位专属头文件（含C++）
+                "D:/MinGW/lib/gcc/x86_64-w64-mingw32/**" // 通配符匹配GCC版本路径
+            ],
+            "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
+            "compilerPath": "D:/MinGW/bin/g++.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64",
+            "browse": {
+                "path": ["D:/MinGW/**", "${workspaceFolder}/**"],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        }
+    ],
+    "version": 4
+}
