@@ -26,3 +26,6 @@ cmake-build-*/
 *.log
 # 忽略核心转储文件
 core
+
+# 忽略压缩包文件
+*.zip
