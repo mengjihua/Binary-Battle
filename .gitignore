@@ -1,1 +1,28 @@
 # /other
+
+# 忽略VS Code C/C++插件生成的.prob临时文件
+*.prob
+# 匹配带cpp_的临时文件（比如.2943.cpp_xxxx.prob）
+*cpp_*
+
+# 忽略C++编译生成的可执行文件（Windows/macOS/Linux）
+*.exe
+*.out
+*.app
+# 忽略编译中间文件
+*.o
+*.obj
+*.so
+*.dll
+*.lib
+*.a
+
+# 忽略VS Code缓存/配置文件
+.vscode/
+# 忽略CMake构建文件
+build/
+cmake-build-*/
+# 忽略日志文件
+*.log
+# 忽略核心转储文件
+core
