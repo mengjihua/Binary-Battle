@@ -5,7 +5,7 @@ const int MOD = 1e9 + 7;
 class Solution {
 public:
     int minimumPairRemoval(vector<int>& nums) {
-        int n = 0, ans = 0;
+        int ans = 0;
         while (true) {
             int n = nums.size();
 
@@ -26,6 +26,7 @@ public:
                     idx = i;
                 }
             }
+            nums[idx] = nums[idx] + nums[idx + 1];
             nums.erase(nums.begin() + idx + 1);
             ans += 1;
         }
